@@ -1,0 +1,72 @@
+## ユーザー登録 [/user]
+
+### ユーザー登録 [PUT]
+
+#### 概要
+
+* 指定したユーザーが未登録であれば登録し、登録の際に発番したユーザーIDを返却する
+
+#### 機能詳細
+
+* 指定したユーザーが未登録であれば登録し、登録の際に発番したユーザーIDを返却する
+* APIの実行時刻に応じて、メッセージ文言を変更する。ユーザー名には敬称を付ける
+  * 2:50. こんにちわ、**** 2:50
+  * 20 - 04. こんばんわ、**** さん
+  * 04 - 12. おはよう、**** さん
+  * 12 - 20. こんにちわ、**** さん
+
+  * 初回. ようこそ、**** さん
+
+#### バリデーション
+
+| パラメータ | チェック内容 |
+|:-----------|:-------------|
+| name | 必須チェック |
+| name | 文字列チェック |
+| password | 必須チェック |
+| password | 桁数チェック (6 ～ 32文字) |
+| password | 文字列チェック |
+
+#### アプリケーションエラー
+
+| エラーコード | エラーメッセージ | 発生条件 |
+|:-------------|:-----------------|:---------|
+| なし |  |  |
+
++ Request 未登録のユーザー名を指定 (application/json; charset=utf-8)
+
+    + Attributes (object)
+        + name: `name123` (required, string) - ユーザー名
+        + password: `pass1234` (required, string) - パスワード
+        
+    + body
+
++ Response 201 (application/json; charset=utf-8)
+
+    + Attributes (object)
+        + user_id: `1` (number) - ユーザーID
+        + created_datetime: `2018-01-20T09:42:36+09:00` (string) - 登録日時（ISO8601形式）
+
++ Request 登録済みのユーザー名を指定 (application/json; charset=utf-8)
+
+    + Attributes (object)
+        + name: `name123` (required, string) - ユーザー名
+        + password: `pass9999` (required, string) - パスワード
+        
+    + body
+
++ Response 409 (application/json; charset=utf-8)
+
+    + Attributes (validationError)
+
++ Request バリデーションエラー (application/json; charset=utf-8)
+
+    + Attributes (object)
+        + name: `1` (required, string) - ユーザー名
+        + password: `bad_password` (required, string) - パスワード
+        
+    + body
+
++ Response 400 (application/json; charset=utf-8)
+
+    + Attributes (validationError)

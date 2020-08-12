@@ -1,0 +1,27 @@
+## validationError (object)
+
++ error (object) - error
+    + message: `A validation error has occurred.` (string) - システム用エラーメッセージ(英語)
+    + type: `No1ApiVoucher.Common.Filters.ValidateModelStateFilter` (string) - エラーの型(クラス名フルパス)
+    + code: `400001` (number) - エラーコード(HTTPステータスコード3桁＋連番3桁)
+    + error_detail (object) - エラー詳細
+        + invalidate_list (array, fixed) - エラーリスト
+            + (object)
+                + message: `The charge_type is invalid.` (string) - メッセージ
+                + parameter: `param.charge_type` (string) - パラメータ
+
+## applicationError (object)
+
++ error (object) - error
+    + message: `The order_id is invalid.` (string) - システム用エラーメッセージ(英語)
+    + type: `No1ApiVoucher.VoucherService.HttpActionResults.InvalidOrderIdBadRequestResult` (string) - エラーの型(クラス名フルパス)
+    + code: `422101` (number) - エラーコード(HTTPステータスコード3桁＋連番3桁)
+
+## internalError (object)
+
++ error (object) - error
+    + message: `A internal error has occurred.` (string) - システム用エラーメッセージ(英語)
+    + type: `No1ApiVoucher.Common.Filters.InternalErrorFilter` (string) - エラーの型(クラス名フルパス)
+    + code: `500001` (number) - エラーコード(HTTPステータスコード3桁＋連番3桁)
+    + error_detail (object, fixed) - エラー詳細
+        + stack_trace: `スタックトレースを表示` (string)

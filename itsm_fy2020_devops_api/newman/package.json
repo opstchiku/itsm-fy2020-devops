@@ -1,0 +1,32 @@
+{
+  "name": "newman-test-api",
+  "version": "1.6.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ebook-japan/no1api-voucher.git"
+  },
+  "author": "ebook-nakamura",
+  "license": "NoLicense",
+  "main": "index.js",
+  "scripts": {
+    "newman": "newman",
+    "local": "node index.js -e local",
+    "team-dev": "node index.js -e team-dev",
+    "team-pr": "node index.js -e team-pr",
+    "team-master": "node index.js -e team-master",
+    "jp-dev": "node index.js -e jp-dev",
+    "jp-stg": "node index.js -e jp-stg",
+    "jp-prev": "node index.js -e jp-prev",
+    "jp-prod": "node index.js -e jp-prod"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "command-line-args": "^5.1.1",
+    "dotenv": "^8.2.0",
+    "newman": "^5.0.0"
+  },
+  "engines": {
+    "node": "~10.20",
+    "npm": "~6"
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "fy2020_devops_blueprint",
+    "version": "1.0.0",
+    "description": "- npm 5.5.1\r - node v8.7.0\r - aglio 2.3.0 （HTMLレンダラ）\r - drakov 1.0.4 （Mockサーバ）\r - dredd 4.5.0 （Testツール）",
+    "main": "scripts/document.js",
+    "scripts": {
+      "aglio": "aglio",
+      "drakov": "drakov",
+      "dredd": "dredd",
+      "build": "npm run aglio -- -i src/root.apib -c -o output/compiled.apib",
+      "doc":   "npm run aglio -- -i output/compiled.apib -p 3000 --server",
+      "mock":  "npm run drakov -- -f output/compiled.apib -p 3003 --public",
+      "test":  "npm run dredd",
+      "export": "npm run aglio -- -i src/root.apib -c -o output/compiled.apib && npm run aglio -- --theme-full-width -i ./output/compiled.apib -o ./output/index.html"
+    },
+    "engines": {
+      "node": ">=8.7",
+      "npm": ">=5.5"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/opst-ueda/itsm_fy2020_devops.git"
+    },
+    "author": "fy2020 team",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/opst-ueda/itsm_fy2020_devops/issues"
+    },
+    "homepage": "https://github.com/opst-ueda/itsm_fy2020_devops/blob/master/README.md",
+    "devDependencies": {
+      "aglio": "^2.3.0",
+      "drakov": "^1.0.4",
+      "dredd": "^4.5.0"
+    }
+  }
+  
