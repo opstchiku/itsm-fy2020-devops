@@ -1,12 +1,45 @@
 # DevOpsTool2020
 
-## 前提条件
-まずはtarraformをインストールしてください。
-インストール方法はここを参照してください。
-https://learn.hashicorp.com/tutorials/terraform/install-cli
+## 構成図
+![Architecture](media/architecture.png)
 
-Dockerでterraform環境を作っても便利です。
-イメージは `hashicorp/terraform` です。
+## Cloud9の環境作成
+まずはAWSのコンソール画面からCloud9の環境を作成してください。
+基本的に設定するのは名前くらいで、他の項目はデフォルトで構いません。
+
+### Terraformをインストールする
+1. ダウンロード(最新バージョンをダウンロードしてください)
+```
+wget https://releases.hashicorp.com/terraform/0.13.0/terraform_0.13.0_linux_amd64.zip
+```
+2. 解凍
+```
+unzip terraform_0.13.0_linux_amd64.zip
+```
+3. 実行ファイルを移動
+```
+mv terraform ~/.local/bin/
+```
+4. バージョンの確認
+```
+terraform -v
+```
+
+### Ansibleをインストールする
+1. インストール
+```
+pip install --user ansible
+```
+2. バージョンの確認
+```
+ansible --version
+```
+
+### terraform/ansibleのコマンドが見つからないときは
+シェルのキャッシュをクリアする
+```
+hash -r
+```
 
 ## 構築手順
 

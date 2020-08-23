@@ -106,39 +106,6 @@ resource "aws_security_group_rule" "out_all" {
 # ====================
 # EC2 Instance
 # ====================
-resource "aws_instance" "ansible" {
-    ami = "ami-0cc75a8978fbbc969"
-    vpc_security_group_ids = [aws_security_group.example.id]
-    subnet_id              = aws_subnet.example.id
-    instance_type = "t2.micro"
-    key_name = var.key_name
-    tags = {
-        Name = var.ansible_instance_name
-    }
-    provisioner "file" {
-        source      = var.private_key
-        destination = "/home/ec2-user/.ssh/id_rsa"
-        connection {
-            type     = "ssh"
-            user     = "ec2-user"
-            host = aws_instance.ansible.public_dns
-            private_key = file(var.private_key)
-        }
-    }
-    provisioner "remote-exec" {
-        connection {
-            type = "ssh"
-            user = "ec2-user"
-            host = aws_instance.ansible.public_dns
-            private_key = file(var.private_key)
-        }
-        inline = [
-            "chmod 400 /home/ec2-user/.ssh/id_rsa",
-            "sudo amazon-linux-extras install -y ansible2"
-        ]
-    }
-}
-
 resource "aws_instance" "webserver" {
     ami = "ami-0cc75a8978fbbc969"
     vpc_security_group_ids = [aws_security_group.example.id]
