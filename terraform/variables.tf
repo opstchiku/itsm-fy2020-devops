@@ -13,9 +13,9 @@ variable "webserver_instance_name" {
     default     = "webserver"
 }
 
-variable "monitoring_instance_name" {
-    description = "monitoring instance name"
-    default     = "monitoring"
+variable "prometheus_instance_name" {
+    description = "prometheus instance name"
+    default     = "prometheus"
 }
 
 variable "jenkins_instance_name" {

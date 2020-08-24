@@ -117,14 +117,14 @@ resource "aws_instance" "webserver" {
     }
 }
 
-resource "aws_instance" "monitoring" {
+resource "aws_instance" "prometheus" {
     ami = "ami-0cc75a8978fbbc969"
     vpc_security_group_ids = [aws_security_group.example.id]
     subnet_id              = aws_subnet.example.id
     instance_type = "t2.micro"
     key_name = var.key_name
     tags = {
-        Name = var.monitoring_instance_name
+        Name = var.prometheus_instance_name
     }
 }
 
@@ -160,12 +160,15 @@ resource "aws_key_pair" "my_aws_key" {
 # ====================
 # resource "local_file" "hosts_file" {
 #   content         = <<EOF
-# [webservers]
+# [webserver]
 # ${aws_instance.webserver.public_dns}
 
-# [monitoring]
-# ${aws_instance.monitoring.public_dns}
+# [jenkins]
+# ${aws_instance.jenkins.public_dns}
+
+# [prometheus]
+# ${aws_instance.prometheus.public_dns}
 # EOF
-#   filename        = "ansible/hosts"
+#   filename        = "../ansible/aws"
 #   file_permission = "0644"
 # }

@@ -1,0 +1,4 @@
+---
+- import_playbook: webserver.yml
+- import_playbook: jenkins.yml
+- import_playbook: prometheus.yml

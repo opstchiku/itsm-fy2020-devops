@@ -1,0 +1,6 @@
+---
+- hosts: prometheus
+  tasks:
+    - name: Debug
+      debug:
+      
