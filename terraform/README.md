@@ -63,8 +63,9 @@ key_name = "hoge"
 ### クレデンシャル情報を設定する
 
 ```
-$ export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXX
-$ export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxx
+$ vi ~/.bash_profile
+export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXX
+export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxx
 ```
 
 #### dockerの場合は
