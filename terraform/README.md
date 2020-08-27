@@ -68,15 +68,6 @@ export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXX
 export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxx
 ```
 
-#### dockerの場合は
-terraform.envを用意してください。
-
-```
-$ cat terraform.env
-AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXX
-AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxx
-```
-
 ### リソースの作成/削除
 初期化
 
@@ -100,39 +91,6 @@ $ terraform apply
 
 ```
 $ terraform destroy
-```
-
-#### dockerだったら
-docker-compose.ymlとMakefileを用意しているので、以下のコマンドでOK。
-
-初期化
-
-```
-$ make init
-```
-
-Dry-run
-
-```
-$ make plan
-```
-
-リソースを作成する
-
-```
-$ make apply
-```
-
-リソースを削除する
-
-```
-$ make destroy
-```
-
-terraformコマンドを実行せずコンテナの中に入る
-
-```
-$ make sh
 ```
 
 ### インスタンスへSSH接続する
