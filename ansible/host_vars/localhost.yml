@@ -1,0 +1,16 @@
+---
+jenkins_jobs:
+  - branch_name: "*/master"
+    credential_id: opstchiku
+    description: "テスト用"
+    name: hoge
+    script_path: Jenkinsfile
+    spec: "H * * * *"
+    url: https://github.com/opstchiku/itsm-fy2020-devops.git
+  - branch_name: "*/master"
+    credential_id: opstchiku
+    description: "テスト用"
+    name: fuga
+    script_path: Jenkinsfile_fuga
+    spec: "H * * * *"
+    url: https://github.com/opstchiku/itsm-fy2020-devops.git

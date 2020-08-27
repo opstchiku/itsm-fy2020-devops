@@ -1,0 +1,21 @@
+---
+- hosts: prometheus
+  become: yes
+
+  vars:
+    # prometheus_targets:
+    #   node:
+    #   - targets:
+    #     - localhost:9100
+    #     - demo.cloudalchemy.org:9100
+    #     labels:
+    #       env: demosite
+    prometheus_scrape_configs:
+      - job_name: "prometheus"
+        metrics_path: "/metrics"
+        static_configs:
+          - targets:
+            - "localhost:9090"
+
+  roles:
+    - role: mesaguy.prometheus

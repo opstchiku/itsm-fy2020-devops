@@ -1,0 +1,6 @@
+.vagrant
+
+roles/cloudalchemy.prometheus
+roles/geerlingguy.git
+roles/geerlingguy.java
+roles/geerlingguy.jenkins
