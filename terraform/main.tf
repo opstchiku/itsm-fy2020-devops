@@ -93,6 +93,16 @@ resource "aws_security_group_rule" "in_icmp" {
     protocol          = "icmp"
 }
 
+# インバウンドルール(jenkins用)
+resource "aws_security_group_rule" "in_jenkins" {
+    security_group_id = aws_security_group.example.id
+    type              = "ingress"
+    cidr_blocks       = ["0.0.0.0/0"]
+    from_port         = 8080
+    to_port           = 8080
+    protocol          = "tcp"
+}
+
 # アウトバウンドルール(全開放)
 resource "aws_security_group_rule" "out_all" {
     security_group_id = aws_security_group.example.id
