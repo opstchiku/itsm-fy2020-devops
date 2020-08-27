@@ -1,6 +1,7 @@
 ---
 - hosts: jenkins
-  tasks:
-    - name: Debug
-      debug:
-      
+  become: yes
+  roles:
+    - role: geerlingguy.java
+    - role: geerlingguy.git
+    - role: geerlingguy.jenkins
