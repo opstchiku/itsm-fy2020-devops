@@ -3,11 +3,6 @@ variable "key_name" {
     default     = "my_aws_key"
 }
 
-variable "ansible_instance_name" {
-    description = "ansible instance name"
-    default     = "ansible"
-}
-
 variable "webserver_instance_name" {
     description = "webserver instance name"
     default     = "webserver"

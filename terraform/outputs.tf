@@ -1,11 +1,3 @@
-output "public_dns_ansible" {
-  value = aws_instance.ansible.public_dns
-}
-
-output "public_ip_ansible" {
-  value = aws_instance.ansible.public_ip
-}
-
 output "public_dns_webserver" {
   value = aws_instance.webserver.public_dns
 }
